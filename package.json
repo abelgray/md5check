@@ -1,0 +1,17 @@
+{
+  "name": "md5check",
+  "version": "1.0.0",
+  "description": "md5 checksum checker (QuickSFV replacement)",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "line-reader": "^0.4.0",
+    "md5-file": "^5.0.0"
+  }
+}
