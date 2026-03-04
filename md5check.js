@@ -23,12 +23,9 @@ function checkFile(file) {
   lineReader.eachLine(file, (line) => {
     if (line.startsWith(";")) return; // ignore comments
 
-    const data = line.split(" ");
-    const sum = data[0];
-    const file = data[1].replace("*", "").replaceAll("\\", "/");
-    const fullPath = folder + file;
+    const [sum, file] = line.split(/\s+/);
+    const fullPath = folder + file.replace("*", "").replaceAll("\\", "/");
 
-    // console.log("Checking file:", fullPath);
     process.stdout.write(`Checking file: ${fullPath}... `);
     const hash = md5File.sync(fullPath);
     if (sum === hash) {
