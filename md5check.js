@@ -19,12 +19,12 @@ function checkFile(file) {
     console.log("File does not exist!");
     return;
   }
-  const folder = path.dirname(file) + "/";
+  const folder = path.dirname(file);
   lineReader.eachLine(file, (line) => {
     if (line.startsWith(";")) return; // ignore comments
 
     const [sum, file] = line.split(/\s+/);
-    const fullPath = folder + file.replace("*", "").replaceAll("\\", "/");
+    const fullPath = folder + "/" + file.replace("*", "").replaceAll("\\", "/");
 
     process.stdout.write(`Checking file: ${fullPath}... `);
     const hash = md5File.sync(fullPath);
